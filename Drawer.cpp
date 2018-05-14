@@ -90,7 +90,7 @@ int main( void )
     glBindVertexArray(VertexArrayID);
 
     // Create and compile our GLSL program from the shaders
-    GLuint programID = LoadShaders( "TransformVertexShader.vertexshader", "TextureFragmentShader.fragmentshader" );
+    GLuint programID = LoadShaders( "../TransformVertexShader.vertexshader", "../TextureFragmentShader.fragmentshader" );
 
     // Get a handle for our "MVP" uniform
     GLuint MatrixID = glGetUniformLocation(programID, "MVP");
@@ -118,7 +118,7 @@ int main( void )
     //Number of current vertex
     unsigned int i;
 
-    FILE * file = fopen("Model.txt", "r");
+    FILE * file = fopen("../Model.txt", "r");
     if( file == NULL )
     {
         printf("Impossible to open the file !\n");
@@ -180,7 +180,7 @@ int main( void )
     glBufferData(GL_ARRAY_BUFFER, colors.size() * sizeof(glm::vec3), &colors[0], GL_STATIC_DRAW);
 
     // Initialize my text library with black letters
-    initText2D( "TextB.dds" );
+    initText2D( "../TextB.dds" );
 
     printf("Tmin = %f Tmax = %f\n", Tmin, Tmax);
 
