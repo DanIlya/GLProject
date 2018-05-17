@@ -204,12 +204,13 @@ int main( void )
         glm::mat4 ViewMatrix = getViewMatrix();
         glm::mat4 ModelMatrix = glm::mat4(1.0);
         glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
-
+/*
         if (i != lasti)
         {
             printf("x = %f  z = %f  h = %f T = %f P = %f\n", vertices[i].x, vertices[i].z, vertices[i].y, temps[i], Pres[i]);
-            printf("R = %f G = %f D = %f\n",colors[i].x, colors[i].y, colors[i].z);
+            printf("R = %f G = %f B  = %f\n",colors[i].x, colors[i].y, colors[i].z);
         }
+*/
         // Send our transformation to the currently bound shader,
         // in the "MVP" uniform
         glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);

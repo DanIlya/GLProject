@@ -34,12 +34,12 @@ float verticalAngle = 3.14f;
 // Initial Field of View
 float initialFoV = 45.0f;
 
-int speed = 45; // 3 units / second
-int ispeed = 10;
+int speed = 185; // 3 units / second
+int ispeed = 50;
 float mouseSpeed = 0.004f;
 
 //initial radius
-float radius = 300.0f;
+float radius = 200.0f;
 
 void computeMatricesFromInputs(std::vector<glm::vec3> vertices){
 
