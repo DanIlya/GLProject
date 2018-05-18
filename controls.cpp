@@ -13,7 +13,7 @@ using namespace glm;
 glm::mat4 ViewMatrix;
 glm::mat4 ProjectionMatrix;
 //initial point
-unsigned int i = 7;
+unsigned int i = 7+36;
 
 glm::mat4 getViewMatrix(){
 	return ViewMatrix;
@@ -94,8 +94,8 @@ void computeMatricesFromInputs(std::vector<glm::vec3> vertices){
 	}
 	// Move backward
 	if (glfwGetKey( window, GLFW_KEY_LEFT ) == GLFW_PRESS){
-        if (int(i - ispeed) < 7)
-            i = 7;
+        if (int(i - ispeed) < 7+36)
+            i = 7+36;
         else
             i -=  ispeed; //int(deltaTime * speed);
 

@@ -115,8 +115,49 @@ int main( void )
     colors.push_back( glm::vec3 {0.05f, 0.5f, 0.014f});
     colors.push_back( glm::vec3 {0.05f, 0.5f, 0.014f});
 
+    //
+    vertices.push_back( glm::vec3(-1.0f,-1.0f,-1.0f));
+    vertices.push_back( glm::vec3(-1.0f,-1.0f, 1.0f));
+    vertices.push_back( glm::vec3(-1.0f, 1.0f, 1.0f)); // Треугольник 1 : конец
+    vertices.push_back( glm::vec3(1.0f, 1.0f,-1.0f)); // Треугольник 2 : начало
+    vertices.push_back( glm::vec3(-1.0f,-1.0f,-1.0f));
+    vertices.push_back( glm::vec3(-1.0f, 1.0f,-1.0f)); // Треугольник 2 : конец
+    vertices.push_back( glm::vec3(1.0f,-1.0f, 1.0f));
+    vertices.push_back( glm::vec3(-1.0f,-1.0f,-1.0f));
+    vertices.push_back( glm::vec3(1.0f,-1.0f,-1.0f));
+    vertices.push_back( glm::vec3(1.0f, 1.0f,-1.0f));
+    vertices.push_back( glm::vec3(1.0f,-1.0f,-1.0f));
+    vertices.push_back( glm::vec3(-1.0f,-1.0f,-1.0f));
+    vertices.push_back( glm::vec3(-1.0f,-1.0f,-1.0f));
+    vertices.push_back( glm::vec3(-1.0f, 1.0f, 1.0f));
+    vertices.push_back( glm::vec3(-1.0f, 1.0f,-1.0f));
+    vertices.push_back( glm::vec3(1.0f,-1.0f, 1.0f));
+    vertices.push_back( glm::vec3(-1.0f,-1.0f, 1.0f));
+    vertices.push_back( glm::vec3(-1.0f,-1.0f,-1.0f));
+    vertices.push_back( glm::vec3(-1.0f, 1.0f, 1.0f));
+    vertices.push_back( glm::vec3(-1.0f,-1.0f, 1.0f));
+    vertices.push_back( glm::vec3(1.0f,-1.0f, 1.0f));
+    vertices.push_back( glm::vec3(1.0f, 1.0f, 1.0f));
+    vertices.push_back( glm::vec3(1.0f,-1.0f,-1.0f));
+    vertices.push_back( glm::vec3(1.0f, 1.0f,-1.0f));
+    vertices.push_back( glm::vec3(1.0f,-1.0f,-1.0f));
+    vertices.push_back( glm::vec3(1.0f, 1.0f, 1.0f));
+    vertices.push_back( glm::vec3(1.0f,-1.0f, 1.0f));
+    vertices.push_back( glm::vec3(1.0f, 1.0f, 1.0f));
+    vertices.push_back( glm::vec3(1.0f, 1.0f,-1.0f));
+    vertices.push_back( glm::vec3(-1.0f, 1.0f,-1.0f));
+    vertices.push_back( glm::vec3(1.0f, 1.0f, 1.0f));
+    vertices.push_back( glm::vec3(-1.0f, 1.0f,-1.0f));
+    vertices.push_back( glm::vec3(-1.0f, 1.0f, 1.0f));
+    vertices.push_back( glm::vec3(1.0f, 1.0f, 1.0f));
+    vertices.push_back( glm::vec3(-1.0f, 1.0f, 1.0f));
+    vertices.push_back( glm::vec3(1.0f,-1.0f, 1.0f));
+
     //Number of current vertex
     unsigned int i;
+
+    for (i = 0; i < 36; i++)
+        colors.push_back( glm::vec3 {0.05f, 0.0f, 0.6f});
 
     FILE * file = fopen("../Model.txt", "r");
     if( file == NULL )
@@ -183,6 +224,7 @@ int main( void )
     initText2D( "../TextB.dds" );
 
     printf("Tmin = %f Tmax = %f\n", Tmin, Tmax);
+    printf("N = %d\n", vertices.size() - 6 - 36);
 
     char text[256];
 
@@ -239,9 +281,11 @@ int main( void )
         );
 
         // Draw the ground
-        glDrawArrays(GL_TRIANGLES, 0, 2*3); // 2*3 indices starting at 0 -> 2 triangles
+        glDrawArrays(GL_TRIANGLES, 0, 2*3 + 12*3); // 2*3 indices starting at 0 -> 2 triangles
+
+        //glDrawArrays(GL_TRIANGLES, 6, 12*3 );
         // Draw the trajectory
-        glDrawArrays(GL_LINES,7,vertices.size() - 7);
+        glDrawArrays(GL_LINES,43 ,vertices.size() - 43);
 
         glDisableVertexAttribArray(0);
         glDisableVertexAttribArray(1);
